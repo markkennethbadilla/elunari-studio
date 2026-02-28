@@ -32,7 +32,7 @@ function TemplateCard({ template, selected, onToggle }: {
         <img
           src={template.thumbnail}
           alt={template.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           onError={(e) => {
             (e.target as HTMLImageElement).src =
               "https://placehold.co/600x375/1e293b/64748b?text=" +

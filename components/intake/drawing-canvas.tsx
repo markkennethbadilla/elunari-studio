@@ -10,7 +10,7 @@ interface DrawingCanvasProps {
 }
 
 const COLORS = [
-  "#fff", "#6366f1", "#06b6d4", "#10b981", "#f59e0b", "#ef4444", "#ec4899", "#000",
+  "#fff", "#059669", "#06b6d4", "#10b981", "#f59e0b", "#ef4444", "#ec4899", "#000",
 ];
 
 export function DrawingCanvas({ onDrawingComplete, drawings, onRemove }: DrawingCanvasProps) {
