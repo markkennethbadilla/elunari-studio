@@ -144,7 +144,7 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="min-h-screen pt-16 flex flex-col">
+    <div className="h-[calc(100dvh-4rem)] flex flex-col">
       {/* Header */}
       <div
         className="sticky top-16 z-30"
