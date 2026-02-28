@@ -28,9 +28,9 @@
 
   // ── Copilot Intelligence — UNCONSTRAINED ──
   // No thinking budget caps, no reasoning effort throttles
-  "github.copilot.chat.anthropic.thinking.budgetTokens": 16384,
-  "github.copilot.chat.anthropic.tools.websearch.enabled": false,
-  "github.copilot.chat.anthropic.contextEditing.enabled": false,
+  "github.copilot.chat.anthropic.thinking.budgetTokens": 1024,
+  "github.copilot.chat.anthropic.tools.websearch.enabled": true,
+  "github.copilot.chat.anthropic.contextEditing.enabled": true,
   "github.copilot.chat.virtualTools.threshold": 36,
   "github.copilot.chat.askQuestions.enabled": false,
   "github.copilot.editor.preferredLanguage": "python",
@@ -247,5 +247,9 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.compactFolders": false,
   "scm.repositories.selectionMode": "single",
-  "settingsSync.ignoredResources": ["mcp"]
+  "settingsSync.ignoredResources": [
+    "mcp"
+  ],
+  "github.copilot.chat.anthropic.useMessagesApi": true,
+  "github.copilot.chat.responsesApiReasoningEffort": "low"
 }

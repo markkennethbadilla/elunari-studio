@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -171,7 +171,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="py-16 md:py-24" style={{ background: "var(--bg-secondary)" }}>
+      <section className="py-20 md:py-28" style={{ background: "var(--bg-secondary)" }}>
         <div className="page-container text-center">
           <ScrollReveal>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
@@ -190,7 +190,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="page-container">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {tiers.map((tier, i) => (
@@ -257,7 +257,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="py-16 md:py-24" style={{ background: "var(--bg-secondary)" }}>
+      <section className="py-20 md:py-28" style={{ background: "var(--bg-secondary)" }}>
         <div className="page-container">
           <ScrollReveal className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -313,7 +313,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Add-ons */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="page-container">
           <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -351,7 +351,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Us */}
-      <section className="py-16 md:py-24" style={{ background: "var(--bg-secondary)" }}>
+      <section className="py-20 md:py-28" style={{ background: "var(--bg-secondary)" }}>
         <div className="page-container">
           <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -379,7 +379,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="page-container text-center">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">

@@ -587,7 +587,7 @@ export default function StartPage() {
   if (submitted) {
     return (
       <div className="min-h-screen pt-20">
-        <div className="page-container py-12">
+        <div className="page-container py-16 md:py-20">
           <StepSuccess />
         </div>
       </div>
@@ -596,7 +596,7 @@ export default function StartPage() {
 
   return (
     <div className="min-h-screen pt-20">
-      <div className="page-container py-8 md:py-12">
+      <div className="page-container py-16 md:py-20">
         {/* Progress bar */}
         <div className="mb-10">
           <div className="flex items-center justify-between mb-4 overflow-x-auto pb-2">

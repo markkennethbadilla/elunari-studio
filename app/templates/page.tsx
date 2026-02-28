@@ -168,7 +168,7 @@ export default function TemplatesPage() {
 
   return (
     <div className="min-h-screen pt-20">
-      <div className="page-container py-8 md:py-12">
+      <div className="page-container py-16 md:py-20">
         {/* Header */}
         <ScrollReveal>
           <div className="text-center mb-10">
