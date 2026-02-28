@@ -140,8 +140,7 @@
 .animate-fade-in {
   animation: fadeIn 0.3s ease forwards;
 }
-.animate-float { /* disabled — no floating elements */ }
-.animate-pulse-glow { /* disabled — no glow effects */ }
+.animate-float { /* disabled */ }
 
 /* ── Scroll Reveal — simple opacity only ── */
 .reveal {
