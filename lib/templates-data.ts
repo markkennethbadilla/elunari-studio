@@ -1,0 +1,236 @@
+export interface Template {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  previewUrl: string;
+  demoUrl: string;
+  source: string;
+  tags: string[];
+  thumbnail: string;
+  features: string[];
+}
+
+/* 
+  Curated free templates from real sources.
+  Thumbnails use OG image URLs or placeholder images.
+  All templates are free to use / open source.
+*/
+export const templates: Template[] = [
+  // ── Landing Pages ──
+  {
+    id: "vercel-nextjs-commerce",
+    name: "Commerce",
+    category: "E-Commerce",
+    description: "High-performance e-commerce storefront with Shopify integration. Dark theme, product grid, cart.",
+    previewUrl: "https://demo.vercel.store",
+    demoUrl: "https://demo.vercel.store",
+    source: "Vercel",
+    tags: ["e-commerce", "shopify", "dark", "next.js"],
+    thumbnail: "https://nextjs.org/static/blog/next-commerce/og.png",
+    features: ["Product catalog", "Shopping cart", "Dark mode", "Fast checkout"],
+  },
+  {
+    id: "vercel-portfolio",
+    name: "Portfolio Starter",
+    category: "Portfolio",
+    description: "Clean, minimal portfolio template. Perfect for creatives and developers.",
+    previewUrl: "https://portfolio-starter-kit.vercel.app",
+    demoUrl: "https://portfolio-starter-kit.vercel.app",
+    source: "Vercel",
+    tags: ["portfolio", "minimal", "blog", "next.js"],
+    thumbnail: "https://vercel.com/vc-ap-vercel-docs/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1728612079%2Ffront%2Ftemplates%2Fportfolio-template.png&w=1200&q=75",
+    features: ["Blog section", "Project showcase", "Responsive", "Fast loading"],
+  },
+  {
+    id: "vercel-blog",
+    name: "Blog Starter Kit",
+    category: "Blog",
+    description: "Markdown-powered blog with beautiful typography and dark mode.",
+    previewUrl: "https://next-blog-starter.vercel.app",
+    demoUrl: "https://next-blog-starter.vercel.app",
+    source: "Vercel",
+    tags: ["blog", "markdown", "clean", "next.js"],
+    thumbnail: "https://vercel.com/vc-ap-vercel-docs/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1728612079%2Ffront%2Ftemplates%2Fblog-template.png&w=1200&q=75",
+    features: ["Markdown support", "Dark mode", "RSS feed", "SEO optimized"],
+  },
+  {
+    id: "vercel-ai-chatbot",
+    name: "AI Chatbot",
+    category: "Web App",
+    description: "Full-featured AI chatbot interface with streaming responses and conversation history.",
+    previewUrl: "https://chat.vercel.ai",
+    demoUrl: "https://chat.vercel.ai",
+    source: "Vercel",
+    tags: ["ai", "chatbot", "saas", "next.js"],
+    thumbnail: "https://vercel.com/vc-ap-vercel-docs/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1728612079%2Ffront%2Ftemplates%2Fchatbot-template.png&w=1200&q=75",
+    features: ["AI integration", "Streaming", "Chat history", "User auth"],
+  },
+  {
+    id: "vercel-saas-starter",
+    name: "SaaS Starter",
+    category: "Web App",
+    description: "Complete SaaS boilerplate with auth, billing, and dashboard. Great for startups.",
+    previewUrl: "https://next-saas-starter.vercel.app",
+    demoUrl: "https://next-saas-starter.vercel.app",
+    source: "Vercel",
+    tags: ["saas", "dashboard", "auth", "next.js"],
+    thumbnail: "https://vercel.com/vc-ap-vercel-docs/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1728612079%2Ffront%2Ftemplates%2Fsaas-template.png&w=1200&q=75",
+    features: ["Authentication", "Stripe billing", "Dashboard", "Admin panel"],
+  },
+  // ── HTML5 UP (Free templates under CCA 3.0) ──
+  {
+    id: "html5up-dimension",
+    name: "Dimension",
+    category: "Landing Page",
+    description: "Fully responsive single-page template with modal content panels and animated background.",
+    previewUrl: "https://html5up.net/dimension",
+    demoUrl: "https://html5up.net/uploads/demos/dimension/",
+    source: "HTML5 UP",
+    tags: ["landing", "animated", "modal", "responsive"],
+    thumbnail: "https://html5up.net/uploads/demos/dimension/images/pic01.jpg",
+    features: ["Animated background", "Modal panels", "Responsive", "Contact form"],
+  },
+  {
+    id: "html5up-massively",
+    name: "Massively",
+    category: "Blog",
+    description: "Bold, imagery-heavy template ideal for blogs and editorials. Full-screen hero sections.",
+    previewUrl: "https://html5up.net/massively",
+    demoUrl: "https://html5up.net/uploads/demos/massively/",
+    source: "HTML5 UP",
+    tags: ["blog", "imagery", "bold", "editorial"],
+    thumbnail: "https://html5up.net/uploads/demos/massively/images/pic01.jpg",
+    features: ["Full-screen hero", "Blog layout", "Social links", "Contact form"],
+  },
+  {
+    id: "html5up-phantom",
+    name: "Phantom",
+    category: "Portfolio",
+    description: "Card-based grid layout. Clean tiles with hover effects, great for showcasing work.",
+    previewUrl: "https://html5up.net/phantom",
+    demoUrl: "https://html5up.net/uploads/demos/phantom/",
+    source: "HTML5 UP",
+    tags: ["portfolio", "grid", "cards", "hover-effects"],
+    thumbnail: "https://html5up.net/uploads/demos/phantom/images/pic01.jpg",
+    features: ["Card grid", "Hover effects", "Clean layout", "Responsive"],
+  },
+  {
+    id: "html5up-stellar",
+    name: "Stellar",
+    category: "Landing Page",
+    description: "Scrolling single-page template with smooth transitions and section-based navigation.",
+    previewUrl: "https://html5up.net/stellar",
+    demoUrl: "https://html5up.net/uploads/demos/stellar/",
+    source: "HTML5 UP",
+    tags: ["landing", "scrolling", "single-page", "smooth"],
+    thumbnail: "https://html5up.net/uploads/demos/stellar/images/pic01.jpg",
+    features: ["Smooth scrolling", "Section nav", "Stats section", "CTA blocks"],
+  },
+  {
+    id: "html5up-hyperspace",
+    name: "Hyperspace",
+    category: "Landing Page",
+    description: "Sidebar navigation with vibrant color scheme. Modern and energetic feel.",
+    previewUrl: "https://html5up.net/hyperspace",
+    demoUrl: "https://html5up.net/uploads/demos/hyperspace/",
+    source: "HTML5 UP",
+    tags: ["landing", "sidebar", "vibrant", "modern"],
+    thumbnail: "https://html5up.net/uploads/demos/hyperspace/images/pic01.jpg",
+    features: ["Sidebar nav", "Vibrant colors", "Feature sections", "Contact form"],
+  },
+  {
+    id: "html5up-forty",
+    name: "Forty",
+    category: "Business",
+    description: "Tile-based multi-page template with strong CTAs. Professional and business-ready.",
+    previewUrl: "https://html5up.net/forty",
+    demoUrl: "https://html5up.net/uploads/demos/forty/",
+    source: "HTML5 UP",
+    tags: ["business", "tiles", "professional", "multi-page"],
+    thumbnail: "https://html5up.net/uploads/demos/forty/images/pic01.jpg",
+    features: ["Tile layout", "Strong CTAs", "Contact form", "About section"],
+  },
+  // ── Tailwind Templates ──
+  {
+    id: "tailwind-spotlight",
+    name: "Spotlight",
+    category: "Portfolio",
+    description: "Personal website template built with Tailwind CSS. Dark theme, timeline layout.",
+    previewUrl: "https://spotlight.tailwindui.com",
+    demoUrl: "https://spotlight.tailwindui.com",
+    source: "Tailwind UI",
+    tags: ["portfolio", "dark", "timeline", "tailwind"],
+    thumbnail: "https://tailwindui.com/img/templates/spotlight.png",
+    features: ["Timeline layout", "Dark theme", "Articles", "Project showcase"],
+  },
+  {
+    id: "tailwind-syntax",
+    name: "Syntax",
+    category: "Landing Page",
+    description: "Documentation-style template with sidebar navigation. Perfect for developer tools.",
+    previewUrl: "https://syntax.tailwindui.com",
+    demoUrl: "https://syntax.tailwindui.com",
+    source: "Tailwind UI",
+    tags: ["docs", "developer", "sidebar", "tailwind"],
+    thumbnail: "https://tailwindui.com/img/templates/syntax.png",
+    features: ["Sidebar nav", "Code blocks", "Search", "API reference"],
+  },
+  // ── Modern Free Templates ──
+  {
+    id: "astro-starter",
+    name: "AstroPaper",
+    category: "Blog",
+    description: "Minimal, accessible blog template built with Astro. Great performance and typography.",
+    previewUrl: "https://astro-paper.pages.dev",
+    demoUrl: "https://astro-paper.pages.dev",
+    source: "Astro",
+    tags: ["blog", "minimal", "accessible", "fast"],
+    thumbnail: "https://astro-paper.pages.dev/astropaper-og.jpg",
+    features: ["Light/Dark theme", "SEO friendly", "Markdown", "Search"],
+  },
+  {
+    id: "cruip-open-pro",
+    name: "Open Pro",
+    category: "Landing Page",
+    description: "SaaS landing page with hero, features, pricing, and testimonials. Dark theme.",
+    previewUrl: "https://open.cruip.com",
+    demoUrl: "https://open.cruip.com",
+    source: "Cruip",
+    tags: ["saas", "landing", "dark", "pricing"],
+    thumbnail: "https://open.cruip.com/og-image.png",
+    features: ["Hero section", "Feature grid", "Pricing table", "Testimonials"],
+  },
+  {
+    id: "creative-tim-material",
+    name: "Material Kit",
+    category: "Landing Page",
+    description: "Material Design kit with reusable components. Clean, modern, Google-inspired aesthetics.",
+    previewUrl: "https://demos.creative-tim.com/material-kit/",
+    demoUrl: "https://demos.creative-tim.com/material-kit/",
+    source: "Creative Tim",
+    tags: ["material", "components", "modern", "google"],
+    thumbnail: "https://s3.amazonaws.com/creativetim_bucket/products/38/thumb/material-kit.jpg",
+    features: ["Material Design", "Component library", "Forms", "Navigation"],
+  },
+];
+
+export const categories = [
+  "All",
+  "Landing Page",
+  "E-Commerce",
+  "Portfolio",
+  "Blog",
+  "Business",
+  "Web App",
+];
+
+export const sources = [
+  "All",
+  "Vercel",
+  "HTML5 UP",
+  "Tailwind UI",
+  "Astro",
+  "Cruip",
+  "Creative Tim",
+];
