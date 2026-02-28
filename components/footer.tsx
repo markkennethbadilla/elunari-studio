@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, Github, Mail, ExternalLink } from "lucide-react";
+import { Layers, Github, Mail, ExternalLink } from "lucide-react";
 
 const footerLinks = [
   {
@@ -45,7 +45,7 @@ export function Footer() {
               className="inline-flex items-center gap-2 text-lg font-bold mb-3 cursor-pointer"
               style={{ color: "var(--text)" }}
             >
-              <Sparkles className="w-5 h-5" style={{ color: "var(--primary)" }} />
+              <Layers className="w-5 h-5" style={{ color: "var(--primary)" }} />
               Elunari Studio
             </Link>
             <p

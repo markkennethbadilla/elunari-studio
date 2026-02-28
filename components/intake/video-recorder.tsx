@@ -135,7 +135,7 @@ export function VideoRecorder({ onRecordingComplete, recordings, onRemove }: Vid
                   window.open(url, "_blank");
                 }}
                 className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"
-                style={{ background: "var(--primary-glow)", color: "var(--primary)" }}
+                style={{ background: "var(--primary-subtle)", color: "var(--primary)" }}
               >
                 <Play className="w-4 h-4" />
               </button>

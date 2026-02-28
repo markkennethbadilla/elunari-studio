@@ -118,7 +118,7 @@ export function VoiceRecorder({ onRecordingComplete, recordings, onRemove }: Voi
                 onClick={() => playRecording(i)}
                 className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer"
                 style={{
-                  background: "var(--primary-glow)",
+                  background: "var(--primary-subtle)",
                   color: "var(--primary)",
                 }}
               >

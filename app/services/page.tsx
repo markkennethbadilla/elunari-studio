@@ -205,7 +205,7 @@ export default function ServicesPage() {
                     <div
                       className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold"
                       style={{
-                        background: "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))",
+                        background: "var(--primary)",
                         color: "#fff",
                       }}
                     >
@@ -276,7 +276,7 @@ export default function ServicesPage() {
                     <div
                       className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
                       style={{
-                        background: "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))",
+                        background: "var(--primary)",
                       }}
                     >
                       <step.icon className="w-6 h-6 text-white" />
@@ -294,7 +294,7 @@ export default function ServicesPage() {
                       <span
                         className="text-xs px-2 py-0.5 rounded-full"
                         style={{
-                          background: "var(--accent-glow)",
+                          background: "var(--accent-subtle)",
                           color: "var(--accent)",
                         }}
                       >

@@ -10,7 +10,7 @@ import {
   Pencil,
   Upload,
   FileText,
-  Sparkles,
+  Layers,
   Palette,
   Code2,
   Zap,
@@ -30,35 +30,18 @@ import {
 function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center pt-20 pb-16 overflow-hidden">
-      {/* Background effects */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 0%, var(--primary-glow), transparent)",
-        }}
-      />
-      <div
-        className="absolute top-1/3 -right-32 w-96 h-96 rounded-full pointer-events-none animate-float"
-        style={{
-          background:
-            "radial-gradient(circle, var(--accent-glow), transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-
       <div className="page-container relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Badge */}
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in"
             style={{
-              background: "var(--primary-glow)",
+              background: "var(--primary-subtle)",
               color: "var(--primary)",
               border: "1px solid var(--border)",
             }}
           >
-            <Sparkles className="w-4 h-4" />
+            <Layers className="w-4 h-4" />
             AI-Powered Web Development
           </div>
 
@@ -177,7 +160,7 @@ function HowItWorks() {
                 <div
                   className="text-sm font-bold mb-4 px-3 py-1 rounded-full"
                   style={{
-                    background: "var(--primary-glow)",
+                    background: "var(--primary-subtle)",
                     color: "var(--primary)",
                   }}
                 >
@@ -187,10 +170,11 @@ function HowItWorks() {
                 <div
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
                   style={{
-                    background: "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))",
+                    background: "var(--primary-subtle)",
+                    color: "var(--primary)",
                   }}
                 >
-                  <step.icon className="w-7 h-7 text-white" />
+                  <step.icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
@@ -236,9 +220,9 @@ function InputMethodsSection() {
                 className="card flex flex-col items-center text-center py-6 px-3 cursor-pointer group"
               >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-all group-hover:scale-110"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 transition-colors"
                   style={{
-                    background: "var(--primary-glow)",
+                    background: "var(--primary-subtle)",
                     color: "var(--primary)",
                   }}
                 >
@@ -305,7 +289,7 @@ function ServicesPreview() {
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                   style={{
-                    background: "var(--accent-glow)",
+                    background: "var(--accent-subtle)",
                     color: "var(--accent)",
                   }}
                 >
@@ -351,7 +335,7 @@ function AISection() {
             <div
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium mb-6"
               style={{
-                background: "var(--accent-glow)",
+                background: "var(--accent-subtle)",
                 color: "var(--accent)",
               }}
             >
@@ -408,7 +392,7 @@ function AISection() {
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center"
                   style={{
-                    background: "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))",
+                    background: "var(--primary)",
                   }}
                 >
                   <Bot className="w-4 h-4 text-white" />
@@ -455,7 +439,7 @@ function AISection() {
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer"
                   style={{
-                    background: "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))",
+                    background: "var(--primary)",
                   }}
                 >
                   <ArrowRight className="w-4 h-4 text-white" />
@@ -523,13 +507,6 @@ function SocialProof() {
 function FinalCTA() {
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 100%, var(--primary-glow), transparent)",
-        }}
-      />
       <div className="page-container relative z-10">
         <ScrollReveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
@@ -544,7 +521,7 @@ function FinalCTA() {
             just tell us what you need.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/start" className="btn-primary text-lg w-full sm:w-auto !py-4 !px-10 animate-pulse-glow">
+            <Link href="/start" className="btn-primary text-lg w-full sm:w-auto !py-4 !px-10">
               Start Your Project
               <ArrowRight className="w-5 h-5" />
             </Link>

@@ -23,7 +23,7 @@ function TemplateCard({ template, selected, onToggle }: {
       className="card overflow-hidden cursor-pointer group"
       style={{
         borderColor: selected ? "var(--primary)" : undefined,
-        background: selected ? "var(--primary-glow)" : undefined,
+        background: selected ? "var(--primary-subtle)" : undefined,
         padding: 0,
       }}
     >
@@ -56,8 +56,8 @@ function TemplateCard({ template, selected, onToggle }: {
         <div
           className="absolute top-2 left-2 px-2.5 py-1 rounded-lg text-xs font-medium"
           style={{
-            background: "var(--surface-blur)",
-            backdropFilter: "blur(8px)",
+            background: "var(--bg-card)",
+            border: "1px solid var(--border)",
             color: "var(--text)",
           }}
         >
@@ -72,9 +72,9 @@ function TemplateCard({ template, selected, onToggle }: {
           className="absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center cursor-pointer transition-all"
           style={{
             background: selected
-              ? "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))"
-              : "var(--surface-blur)",
-            backdropFilter: "blur(8px)",
+              ? "var(--primary)"
+              : "var(--bg-card)",
+            border: "1px solid var(--border)",
           }}
         >
           {selected ? (
@@ -96,7 +96,7 @@ function TemplateCard({ template, selected, onToggle }: {
             <span
               className="text-xs px-2 py-0.5 rounded-full"
               style={{
-                background: "var(--primary-glow)",
+                background: "var(--primary-subtle)",
                 color: "var(--primary)",
               }}
             >
@@ -220,7 +220,7 @@ export default function TemplatesPage() {
                   onClick={() => setCategory(c)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer transition-all"
                   style={{
-                    background: category === c ? "var(--primary-glow)" : "var(--bg-card)",
+                    background: category === c ? "var(--primary-subtle)" : "var(--bg-card)",
                     color: category === c ? "var(--primary)" : "var(--text-secondary)",
                     border: "1px solid " + (category === c ? "var(--primary)" : "var(--border)"),
                   }}
@@ -242,7 +242,7 @@ export default function TemplatesPage() {
                   onClick={() => setSource(s)}
                   className="px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer transition-all"
                   style={{
-                    background: source === s ? "var(--accent-glow)" : "var(--bg-card)",
+                    background: source === s ? "var(--accent-subtle)" : "var(--bg-card)",
                     color: source === s ? "var(--accent)" : "var(--text-secondary)",
                     border: "1px solid " + (source === s ? "var(--accent)" : "var(--border)"),
                   }}
@@ -298,8 +298,8 @@ export default function TemplatesPage() {
         {/* Selected CTA */}
         {selected.length > 0 && (
           <div
-            className="fixed bottom-0 left-0 right-0 p-4 z-40 glass"
-            style={{ borderTop: "1px solid var(--border)" }}
+            className="fixed bottom-0 left-0 right-0 p-4 z-40"
+            style={{ borderTop: "1px solid var(--border)", background: "var(--bg)" }}
           >
             <div className="page-container flex items-center justify-between">
               <p className="text-sm font-medium">

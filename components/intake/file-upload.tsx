@@ -58,7 +58,7 @@ export function FileUpload({ files, onFilesAdded, onRemove }: FileUploadProps) {
           borderStyle: "dashed",
           borderWidth: "2px",
           borderColor: dragOver ? "var(--primary)" : "var(--border)",
-          background: dragOver ? "var(--primary-glow)" : "var(--bg-card)",
+          background: dragOver ? "var(--primary-subtle)" : "var(--bg-card)",
         }}
         onClick={() => inputRef.current?.click()}
         onDragOver={(e) => {
@@ -102,7 +102,7 @@ export function FileUpload({ files, onFilesAdded, onRemove }: FileUploadProps) {
                 <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                   style={{
-                    background: "var(--primary-glow)",
+                    background: "var(--primary-subtle)",
                     color: "var(--primary)",
                   }}
                 >

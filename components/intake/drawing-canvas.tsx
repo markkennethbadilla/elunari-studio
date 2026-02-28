@@ -174,7 +174,7 @@ export function DrawingCanvas({ onDrawingComplete, drawings, onRemove }: Drawing
             onClick={() => setBrushSize(2)}
             className="p-1.5 rounded cursor-pointer"
             style={{
-              background: brushSize === 2 ? "var(--primary-glow)" : "transparent",
+              background: brushSize === 2 ? "var(--primary-subtle)" : "transparent",
               color: brushSize === 2 ? "var(--primary)" : "var(--text-muted)",
             }}
           >
@@ -184,7 +184,7 @@ export function DrawingCanvas({ onDrawingComplete, drawings, onRemove }: Drawing
             onClick={() => setBrushSize(5)}
             className="p-1.5 rounded cursor-pointer"
             style={{
-              background: brushSize === 5 ? "var(--primary-glow)" : "transparent",
+              background: brushSize === 5 ? "var(--primary-subtle)" : "transparent",
               color: brushSize === 5 ? "var(--primary)" : "var(--text-muted)",
             }}
           >
@@ -194,7 +194,7 @@ export function DrawingCanvas({ onDrawingComplete, drawings, onRemove }: Drawing
             onClick={() => setBrushSize(10)}
             className="p-1.5 rounded cursor-pointer"
             style={{
-              background: brushSize === 10 ? "var(--primary-glow)" : "transparent",
+              background: brushSize === 10 ? "var(--primary-subtle)" : "transparent",
               color: brushSize === 10 ? "var(--primary)" : "var(--text-muted)",
             }}
           >

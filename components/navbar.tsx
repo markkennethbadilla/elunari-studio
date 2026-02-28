@@ -8,7 +8,7 @@ import {
   X,
   Sun,
   Moon,
-  Sparkles,
+  Layers,
 } from "lucide-react";
 
 const links = [
@@ -47,13 +47,13 @@ export function Navbar() {
             className="flex items-center gap-2 text-lg font-bold cursor-pointer"
             style={{ color: "var(--text)" }}
           >
-            <Sparkles
+            <Layers
               className="w-5 h-5"
               style={{ color: "var(--primary)" }}
             />
             <span>
               Elunari{" "}
-              <span className="gradient-text">Studio</span>
+              <span style={{ color: "var(--primary)" }}>Studio</span>
             </span>
           </Link>
 

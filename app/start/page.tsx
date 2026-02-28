@@ -18,7 +18,7 @@ import {
   Pencil,
   Upload,
   Send,
-  Sparkles,
+  Layers,
   Clock,
   DollarSign,
   Zap,
@@ -74,7 +74,7 @@ const projectTypes = [
   { id: "ecommerce", icon: ShoppingCart, title: "E-Commerce", desc: "Online store with payments and inventory", price: "From $2,999" },
   { id: "webapp", icon: Briefcase, title: "Web Application", desc: "Custom app with user accounts and features", price: "From $4,999" },
   { id: "portfolio", icon: User, title: "Portfolio", desc: "Showcase your work beautifully", price: "From $399" },
-  { id: "custom", icon: Sparkles, title: "Something Else", desc: "Tell us what you need", price: "Custom quote" },
+  { id: "custom", icon: Layers, title: "Something Else", desc: "Tell us what you need", price: "Custom quote" },
 ];
 
 function StepProjectType({ data, onChange }: { data: ProjectData; onChange: (d: Partial<ProjectData>) => void }) {
@@ -92,7 +92,7 @@ function StepProjectType({ data, onChange }: { data: ProjectData; onChange: (d: 
             className="card text-left cursor-pointer transition-all"
             style={{
               borderColor: data.projectType === t.id ? "var(--primary)" : undefined,
-              background: data.projectType === t.id ? "var(--primary-glow)" : undefined,
+              background: data.projectType === t.id ? "var(--primary-subtle)" : undefined,
             }}
           >
             <div className="flex items-start gap-3">
@@ -100,7 +100,7 @@ function StepProjectType({ data, onChange }: { data: ProjectData; onChange: (d: 
                 className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{
                   background: data.projectType === t.id
-                    ? "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))"
+                    ? "var(--primary)"
                     : "var(--bg-card)",
                   color: data.projectType === t.id ? "#fff" : "var(--text-muted)",
                   border: data.projectType === t.id ? "none" : "1px solid var(--border)",
@@ -148,7 +148,7 @@ function StepDescribe({ data, onChange }: { data: ProjectData; onChange: (d: Par
             onClick={() => setTab(t.id)}
             className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium cursor-pointer transition-all"
             style={{
-              background: tab === t.id ? "var(--primary-glow)" : "var(--bg-card)",
+              background: tab === t.id ? "var(--primary-subtle)" : "var(--bg-card)",
               color: tab === t.id ? "var(--primary)" : "var(--text-secondary)",
               border: "1px solid " + (tab === t.id ? "var(--primary)" : "var(--border)"),
             }}
@@ -237,31 +237,31 @@ function StepDescribe({ data, onChange }: { data: ProjectData; onChange: (d: Par
       <div className="mt-6 flex flex-wrap gap-3">
         {data.description && (
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{ background: "var(--primary-glow)", color: "var(--primary)" }}>
+            style={{ background: "var(--primary-subtle)", color: "var(--primary)" }}>
             <FileText className="w-3 h-3" /> Text added
           </span>
         )}
         {data.voiceRecordings.length > 0 && (
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{ background: "var(--accent-glow)", color: "var(--accent)" }}>
+            style={{ background: "var(--accent-subtle)", color: "var(--accent)" }}>
             <Mic className="w-3 h-3" /> {data.voiceRecordings.length} recording(s)
           </span>
         )}
         {data.videoRecordings.length > 0 && (
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{ background: "var(--accent-glow)", color: "var(--accent)" }}>
+            style={{ background: "var(--accent-subtle)", color: "var(--accent)" }}>
             <Video className="w-3 h-3" /> {data.videoRecordings.length} video(s)
           </span>
         )}
         {data.drawings.length > 0 && (
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{ background: "var(--accent-glow)", color: "var(--accent)" }}>
+            style={{ background: "var(--accent-subtle)", color: "var(--accent)" }}>
             <Pencil className="w-3 h-3" /> {data.drawings.length} drawing(s)
           </span>
         )}
         {data.files.length > 0 && (
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{ background: "var(--accent-glow)", color: "var(--accent)" }}>
+            style={{ background: "var(--accent-subtle)", color: "var(--accent)" }}>
             <Upload className="w-3 h-3" /> {data.files.length} file(s)
           </span>
         )}
@@ -348,7 +348,7 @@ function StepFeatures({ data, onChange }: { data: ProjectData; onChange: (d: Par
                     onClick={() => toggleFeature(item)}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-left cursor-pointer transition-all"
                     style={{
-                      background: selected ? "var(--primary-glow)" : "var(--bg-card)",
+                      background: selected ? "var(--primary-subtle)" : "var(--bg-card)",
                       border: "1px solid " + (selected ? "var(--primary)" : "var(--border)"),
                       color: selected ? "var(--primary)" : "var(--text-secondary)",
                     }}
@@ -417,7 +417,7 @@ function StepBudget({ data, onChange }: { data: ProjectData; onChange: (d: Parti
             className="card text-left cursor-pointer"
             style={{
               borderColor: data.budget === b.id ? "var(--primary)" : undefined,
-              background: data.budget === b.id ? "var(--primary-glow)" : undefined,
+              background: data.budget === b.id ? "var(--primary-subtle)" : undefined,
             }}
           >
             <p className="font-semibold">{b.label}</p>
@@ -437,7 +437,7 @@ function StepBudget({ data, onChange }: { data: ProjectData; onChange: (d: Parti
             className="card text-center cursor-pointer"
             style={{
               borderColor: data.timeline === t.id ? "var(--primary)" : undefined,
-              background: data.timeline === t.id ? "var(--primary-glow)" : undefined,
+              background: data.timeline === t.id ? "var(--primary-subtle)" : undefined,
             }}
           >
             <t.icon
@@ -531,7 +531,7 @@ function StepSuccess() {
         <CheckCircle2 className="w-10 h-10 text-white" />
       </div>
       <h2 className="text-3xl font-bold mb-4">
-        Project Submitted! <span className="gradient-text">🎉</span>
+        Project Submitted!
       </h2>
       <p className="text-lg mb-8 max-w-md mx-auto" style={{ color: "var(--text-secondary)" }}>
         We&apos;ve received your project details. Our team will review everything and send you
@@ -553,7 +553,7 @@ function StepSuccess() {
 const STEPS = [
   { label: "Type", icon: Layout },
   { label: "Describe", icon: FileText },
-  { label: "Features", icon: Sparkles },
+  { label: "Features", icon: CheckCircle2 },
   { label: "Budget", icon: DollarSign },
   { label: "Contact", icon: User },
 ];
@@ -624,7 +624,7 @@ export default function StartPage() {
                     className="w-8 md:w-16 lg:w-24 h-0.5 mx-2"
                     style={{
                       background: i < step
-                        ? "linear-gradient(90deg, var(--gradient-start), var(--gradient-end))"
+                        ? "var(--primary)"
                         : "var(--border)",
                     }}
                   />

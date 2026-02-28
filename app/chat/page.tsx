@@ -6,7 +6,6 @@ import {
   Bot,
   User,
   Loader2,
-  Sparkles,
   ArrowRight,
   RotateCcw,
 } from "lucide-react";
@@ -148,16 +147,15 @@ export default function ChatPage() {
     <div className="min-h-screen pt-16 flex flex-col">
       {/* Header */}
       <div
-        className="glass sticky top-16 z-30"
-        style={{ borderBottom: "1px solid var(--border)" }}
+        className="sticky top-16 z-30"
+        style={{ borderBottom: "1px solid var(--border)", background: "var(--bg)" }}
       >
         <div className="page-container flex items-center justify-between py-3">
           <div className="flex items-center gap-3">
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center"
               style={{
-                background:
-                  "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))",
+                background: "var(--primary)",
               }}
             >
               <Bot className="w-5 h-5 text-white" />
@@ -203,8 +201,8 @@ export default function ChatPage() {
                 style={{
                   background:
                     msg.role === "assistant"
-                      ? "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))"
-                      : "var(--accent-glow)",
+                      ? "var(--primary)"
+                      : "var(--accent-subtle)",
                 }}
               >
                 {msg.role === "assistant" ? (
@@ -230,8 +228,7 @@ export default function ChatPage() {
               <div
                 className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
                 style={{
-                  background:
-                    "linear-gradient(135deg, var(--gradient-start), var(--gradient-end))",
+                  background: "var(--primary)",
                 }}
               >
                 <Bot className="w-4 h-4 text-white" />
@@ -270,7 +267,7 @@ export default function ChatPage() {
                   color: "var(--text-secondary)",
                 }}
               >
-                <Sparkles
+                <ArrowRight
                   className="w-3 h-3 inline mr-1.5"
                   style={{ color: "var(--primary)" }}
                 />
@@ -283,8 +280,8 @@ export default function ChatPage() {
 
       {/* Input */}
       <div
-        className="sticky bottom-0 z-30 glass"
-        style={{ borderTop: "1px solid var(--border)" }}
+        className="sticky bottom-0 z-30"
+        style={{ borderTop: "1px solid var(--border)", background: "var(--bg)" }}
       >
         <div className="page-container max-w-3xl py-4">
           <div className="flex items-end gap-3">
