@@ -69,7 +69,20 @@ export default function ChatPage() {
         }),
       });
 
-      if (!res.ok) throw new Error("API error");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const errorMsg =
+          res.status === 429
+            ? "I'm getting a lot of requests right now. Please wait a moment and try again."
+            : res.status === 503
+              ? "Our AI is temporarily busy. Please try again in about a minute, or [start a project directly](/start)."
+              : "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or [start a project directly](/start).";
+        setMessages((msgs) => [
+          ...msgs,
+          { role: "assistant", content: data.error || errorMsg },
+        ]);
+        return;
+      }
 
       const data = await res.json();
       setMessages((msgs) => [
