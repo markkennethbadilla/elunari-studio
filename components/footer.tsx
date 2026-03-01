@@ -51,7 +51,7 @@ export function Footer() {
               className="inline-flex items-center gap-2 text-lg font-bold mb-3 cursor-pointer"
               style={{ color: "var(--text)" }}
             >
-              <Layers className="w-5 h-5" style={{ color: "var(--primary)" }} />
+              <Layers className="w-5 h-5" style={{ color: "var(--primary)" }} aria-hidden="true" />
               Elunari Studio
             </Link>
             <p
@@ -70,8 +70,9 @@ export function Footer() {
                   color: "var(--text-muted)",
                   border: "1px solid var(--border)",
                 }}
+                aria-label="GitHub"
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href="mailto:studio@elunari.uk"
@@ -80,8 +81,9 @@ export function Footer() {
                   color: "var(--text-muted)",
                   border: "1px solid var(--border)",
                 }}
+                aria-label="Email"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -107,7 +109,7 @@ export function Footer() {
                         style={{ color: "var(--text-secondary)" }}
                       >
                         {link.label}
-                        <ExternalLink className="w-3 h-3" />
+                        <ExternalLink className="w-3 h-3" aria-hidden="true" />
                       </a>
                     ) : (
                       <Link

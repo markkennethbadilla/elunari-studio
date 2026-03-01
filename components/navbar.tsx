@@ -86,9 +86,9 @@ export function Navbar() {
                 aria-label="Toggle theme"
               >
                 {resolvedTheme === "dark" ? (
-                  <Sun className="w-4 h-4" />
+                  <Sun className="w-4 h-4" aria-hidden="true" />
                 ) : (
-                  <Moon className="w-4 h-4" />
+                  <Moon className="w-4 h-4" aria-hidden="true" />
                 )}
               </button>
             )}
@@ -110,9 +110,9 @@ export function Navbar() {
                 aria-label="Toggle theme"
               >
                 {resolvedTheme === "dark" ? (
-                  <Sun className="w-4 h-4" />
+                  <Sun className="w-4 h-4" aria-hidden="true" />
                 ) : (
-                  <Moon className="w-4 h-4" />
+                  <Moon className="w-4 h-4" aria-hidden="true" />
                 )}
               </button>
             )}
@@ -122,7 +122,7 @@ export function Navbar() {
               style={{ color: "var(--text)" }}
               aria-label="Menu"
             >
-              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {open ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
             </button>
           </div>
         </nav>
