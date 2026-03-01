@@ -77,7 +77,7 @@
   "chat.useAgentSkills": true,
   "chat.useClaudeMdFile": false,
   "chat.viewProgressBadge.enabled": true,
-  "chat.viewSessions.orientation": "stacked",
+  "chat.viewSessions.orientation": "sideBySide",
   "chat.viewSessions.enabled": true,
   "chat.unifiedAgentsBar.enabled": true,
   "chat.agentsControl.enabled": true,

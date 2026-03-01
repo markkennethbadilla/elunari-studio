@@ -3,27 +3,50 @@ import { NextRequest, NextResponse } from "next/server";
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 
-// Free model cascade — prioritize working less-popular models first
-const FREE_MODELS = [
-  "arcee-ai/trinity-large-preview:free",
-  "nvidia/nemotron-3-nano-30b-a3b:free",
-  "stepfun/step-3.5-flash:free",
-  "upstage/solar-pro-3:free",
-  "z-ai/glm-4.5-air:free",
-  "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
-  "nvidia/nemotron-nano-9b-v2:free",
-  "arcee-ai/trinity-mini:free",
-  "qwen/qwen3-coder:free",
-  "qwen/qwen3-next-80b-a3b-instruct:free",
-  "nousresearch/hermes-3-llama-3.1-405b:free",
+// Fallback free model cascade (used if HQ is unreachable)
+const FALLBACK_MODELS = [
+  "openai/gpt-oss-120b:free",
   "google/gemma-3-27b-it:free",
+  "meta-llama/llama-4-maverick:free",
+  "deepseek/deepseek-r1-0528:free",
+  "qwen/qwen3-32b:free",
+  "microsoft/phi-4-reasoning-plus:free",
   "mistralai/mistral-small-3.1-24b-instruct:free",
   "meta-llama/llama-3.3-70b-instruct:free",
+  "nvidia/llama-3.1-nemotron-70b-instruct:free",
+  "qwen/qwen3-235b-a22b:free",
+  "deepseek/deepseek-chat-v3-0324:free",
   "google/gemma-3-12b-it:free",
+  "meta-llama/llama-4-scout:free",
+  "qwen/qwen3-30b-a3b:free",
+  "mistralai/mistral-small-3.2-24b-instruct:free",
+  "nousresearch/deephermes-3-llama-3-8b-preview:free",
   "qwen/qwen3-4b:free",
   "google/gemma-3-4b-it:free",
-  "meta-llama/llama-3.2-3b-instruct:free",
 ];
+
+// HQ cascade cache
+let cachedCascade: string[] | null = null;
+let cacheExpiry = 0;
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+async function getModelCascade(): Promise<string[]> {
+  if (cachedCascade && Date.now() < cacheExpiry) return cachedCascade;
+  try {
+    const res = await fetch("https://hq.elunari.uk/api/models?cascade=true", {
+      signal: AbortSignal.timeout(3000),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        cachedCascade = data;
+        cacheExpiry = Date.now() + CACHE_TTL;
+        return data;
+      }
+    }
+  } catch { /* fall through */ }
+  return FALLBACK_MODELS;
+}
 
 const SYSTEM_PROMPT = `You are Elunari Studio's AI web development consultant. You help potential clients plan their website projects.
 
@@ -175,8 +198,11 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = (await req.json()) as { messages: ChatMessage[] };
 
+    // Fetch cascade from HQ (cached)
+    const freeModels = await getModelCascade();
+
     // Cascade through free models
-    for (const model of FREE_MODELS) {
+    for (const model of freeModels) {
       if (!isModelAvailable(model)) continue;
 
       const result = await tryModel(model, messages);

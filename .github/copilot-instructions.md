@@ -150,8 +150,10 @@ Before writing Sir's bio/education/career data to ANY external platform: cross-c
 ## Skills (on-demand capabilities)
 
 Extended rules live in `.github/skills/` as Agent Skills (auto-loaded when relevant).
-Key skills: design-production, deploy, forge, powershell, hq-logging, capabilities, content-pipeline.
+Key skills: design-production, deploy, forge, powershell, hq-logging, capabilities, content-pipeline, incremental-edits.
 See `.github/skills-audit.md` for full inventory.
+
+**MANDATORY**: The `incremental-edits` skill applies to ALL code generation. NEVER create or edit files with >80 lines in a single tool call. Always chunk into skeleton + fill passes.
 
 ## File Safety & Self-Editing
 
