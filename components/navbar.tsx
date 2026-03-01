@@ -8,7 +8,6 @@ import {
   X,
   Sun,
   Moon,
-  Layers,
 } from "lucide-react";
 
 const links = [
@@ -47,10 +46,8 @@ export function Navbar() {
             className="flex items-center gap-2 text-lg font-bold cursor-pointer"
             style={{ color: "var(--text)" }}
           >
-            <Layers
-              className="w-5 h-5"
-              style={{ color: "var(--primary)" }}
-            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/icon.svg" alt="Elunari Studio" width={32} height={32} className="w-8 h-8" />
             <span>
               Elunari{" "}
               <span style={{ color: "var(--primary)" }}>Studio</span>

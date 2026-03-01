@@ -4,13 +4,7 @@
       <stop offset="0%" stop-color="#7c3aed"/>
       <stop offset="100%" stop-color="#a855f7"/>
     </linearGradient>
-    <clipPath id="squircle">
-      <path d="M256 0c-141.4 0-192 50.6-192 192v128c0 141.4 50.6 192 192 192h0c141.4 0 192-50.6 192-192V192C448 50.6 397.4 0 256 0z"/>
-    </clipPath>
   </defs>
-  <g clip-path="url(#squircle)">
-    <rect width="512" height="512" fill="url(#bg)"/>
-    <text x="256" y="330" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="280" font-weight="800" opacity="0.95">S</text>
-    <rect x="60" y="60" width="392" height="392" rx="20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="2"/>
-  </g>
+  <rect width="512" height="512" rx="108" fill="url(#bg)"/>
+  <text x="256" y="340" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="280" font-weight="800" opacity="0.95">S</text>
 </svg>
