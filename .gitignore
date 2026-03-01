@@ -9,3 +9,8 @@ start-dev.ps1
 
 .vercel
 .env*.local
+
+# Dev server PID tracking
+.dev-pids.txt
+
+.dev-pids.txt
