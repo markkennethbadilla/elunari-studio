@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Layers, Github, Mail, ExternalLink } from "lucide-react";
 
 const footerLinks = [
@@ -29,6 +32,9 @@ const footerLinks = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname === "/chat") return null;
+
   return (
     <footer
       style={{
@@ -129,15 +135,14 @@ export function Footer() {
         >
           <p>&copy; {new Date().getFullYear()} Elunari Studio. All rights reserved.</p>
           <p>
-            A branch of{" "}
             <a
               href="https://elunari.uk"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline cursor-pointer"
+              className="cursor-pointer"
               style={{ color: "var(--primary)" }}
             >
-              Elunari Corp
+              elunari.uk
             </a>
           </p>
         </div>

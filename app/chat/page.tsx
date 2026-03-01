@@ -8,6 +8,7 @@ import {
   Loader2,
   ArrowRight,
   RotateCcw,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -28,9 +29,14 @@ export default function ChatPage() {
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const isInitialMount = useRef(true);
 
-  // Auto-scroll
+  // Auto-scroll on new messages (skip initial render)
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
@@ -157,50 +163,65 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="h-[calc(100dvh-4rem)] flex flex-col">
+    <div className="pt-16 h-dvh flex flex-col">
       {/* Header */}
       <div
-        className="sticky top-16 z-30"
+        className="flex-shrink-0 z-30"
         style={{ borderBottom: "1px solid var(--border)", background: "var(--bg)" }}
       >
-        <div className="page-container flex items-center justify-between py-3">
+        <div className="max-w-3xl mx-auto px-4 flex items-center justify-between py-3">
           <div className="flex items-center gap-3">
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center"
-              style={{
-                background: "var(--primary)",
-              }}
+              className="w-10 h-10 rounded-xl flex items-center justify-center"
+              style={{ background: "var(--primary)" }}
             >
               <Bot className="w-5 h-5 text-white" />
             </div>
             <div>
-              <p className="text-sm font-semibold">Elunari AI Consultant</p>
-              <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+              <p className="text-sm font-semibold" style={{ color: "var(--text)" }}>
+                Elunari AI Consultant
+              </p>
+              <div className="flex items-center gap-1.5">
                 <span
-                  className="inline-block w-2 h-2 rounded-full mr-1"
+                  className="inline-block w-2 h-2 rounded-full"
                   style={{ background: "#10b981" }}
                 />
-                Online — Ask me anything about your project
-              </p>
+                <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                  Online
+                </p>
+              </div>
             </div>
           </div>
-          <button
-            onClick={resetChat}
-            className="p-2 rounded-lg cursor-pointer"
-            style={{
-              color: "var(--text-muted)",
-              border: "1px solid var(--border)",
-            }}
-            title="Reset conversation"
-          >
-            <RotateCcw className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/start"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg cursor-pointer"
+              style={{
+                color: "var(--primary)",
+                background: "var(--primary-subtle)",
+              }}
+            >
+              <Sparkles className="w-3 h-3" />
+              Project Wizard
+            </Link>
+            <button
+              onClick={resetChat}
+              className="p-2 rounded-lg cursor-pointer transition-colors"
+              style={{
+                color: "var(--text-muted)",
+                border: "1px solid var(--border)",
+              }}
+              title="Reset conversation"
+            >
+              <RotateCcw className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto py-6">
-        <div className="page-container max-w-3xl flex flex-col gap-4">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto">
+        <div className="max-w-3xl mx-auto px-4 py-6 flex flex-col gap-5">
           {messages.map((msg, i) => (
             <div
               key={i}
@@ -210,7 +231,7 @@ export default function ChatPage() {
             >
               {/* Avatar */}
               <div
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+                className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
                 style={{
                   background:
                     msg.role === "assistant"
@@ -229,7 +250,23 @@ export default function ChatPage() {
               </div>
 
               {/* Bubble */}
-              <div className={"chat-bubble " + msg.role}>
+              <div
+                className={
+                  "max-w-[80%] rounded-2xl px-4 py-3 text-[0.9375rem] leading-relaxed " +
+                  (msg.role === "user"
+                    ? "rounded-br-md ml-auto"
+                    : "rounded-bl-md")
+                }
+                style={
+                  msg.role === "user"
+                    ? { background: "var(--primary)", color: "#fff" }
+                    : {
+                        background: "var(--bg-card)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text)",
+                      }
+                }
+              >
                 {renderContent(msg.content)}
               </div>
             </div>
@@ -239,15 +276,19 @@ export default function ChatPage() {
           {loading && (
             <div className="flex gap-3">
               <div
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
-                style={{
-                  background: "var(--primary)",
-                }}
+                className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+                style={{ background: "var(--primary)" }}
               >
                 <Bot className="w-4 h-4 text-white" />
               </div>
-              <div className="chat-bubble assistant flex items-center gap-2">
-                <Loader2 className="w-4 h-4 animate-spin" />
+              <div
+                className="rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-2"
+                style={{
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                }}
+              >
+                <Loader2 className="w-4 h-4 animate-spin" style={{ color: "var(--primary)" }} />
                 <span className="text-sm" style={{ color: "var(--text-muted)" }}>
                   Thinking...
                 </span>
@@ -259,7 +300,7 @@ export default function ChatPage() {
 
       {/* Suggestions (when few messages) */}
       {messages.length <= 2 && !loading && (
-        <div className="page-container max-w-3xl mb-4">
+        <div className="flex-shrink-0 max-w-3xl mx-auto w-full px-4 pb-3">
           <div className="flex flex-wrap gap-2">
             {[
               "I need a landing page for my startup",
@@ -273,7 +314,7 @@ export default function ChatPage() {
                   setInput(suggestion);
                   setTimeout(() => sendMessage(), 0);
                 }}
-                className="px-3 py-2 rounded-xl text-sm cursor-pointer transition-all"
+                className="px-3 py-2 rounded-xl text-sm cursor-pointer transition-colors"
                 style={{
                   background: "var(--bg-card)",
                   border: "1px solid var(--border)",
@@ -293,11 +334,17 @@ export default function ChatPage() {
 
       {/* Input */}
       <div
-        className="sticky bottom-0 z-30"
+        className="flex-shrink-0 z-30"
         style={{ borderTop: "1px solid var(--border)", background: "var(--bg)" }}
       >
-        <div className="page-container max-w-3xl py-4">
-          <div className="flex items-end gap-3">
+        <div className="max-w-3xl mx-auto px-4 py-3">
+          <div
+            className="flex items-end gap-2 rounded-xl px-3 py-2"
+            style={{
+              background: "var(--bg-card)",
+              border: "1px solid var(--border)",
+            }}
+          >
             <textarea
               ref={inputRef}
               value={input}
@@ -307,28 +354,29 @@ export default function ChatPage() {
               }}
               onKeyDown={handleKeyDown}
               placeholder="Describe your project idea..."
-              className="input flex-1 !min-h-0 !py-3"
+              className="flex-1 bg-transparent border-none outline-none text-[0.9375rem] leading-relaxed resize-none"
               rows={1}
-              style={{ resize: "none" }}
+              style={{ color: "var(--text)", minHeight: "1.5rem", maxHeight: "120px" }}
             />
             <button
               onClick={sendMessage}
               disabled={!input.trim() || loading}
-              className="btn-primary !p-3 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center cursor-pointer transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              style={{ background: "var(--primary)", color: "#fff" }}
             >
-              <Send className="w-5 h-5" />
+              <Send className="w-4 h-4" />
             </button>
           </div>
-          <div className="flex items-center justify-between mt-2">
+          <div className="flex items-center justify-between mt-1.5 px-1">
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-              Press Enter to send, Shift+Enter for new line
+              Enter to send · Shift+Enter for new line
             </p>
             <Link
               href="/start"
-              className="text-xs inline-flex items-center gap-1 cursor-pointer"
+              className="text-xs inline-flex items-center gap-1 cursor-pointer sm:hidden"
               style={{ color: "var(--primary)" }}
             >
-              Or use our project wizard
+              Project wizard
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>

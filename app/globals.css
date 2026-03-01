@@ -142,12 +142,8 @@
 }
 .animate-float { /* disabled */ }
 
-/* ── Scroll Reveal — simple opacity only ── */
+/* ── Scroll Reveal — visible by default ── */
 .reveal {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.reveal.visible {
   opacity: 1;
 }
 
