@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import {
   ArrowRight,
@@ -71,6 +72,7 @@ function Hero() {
 
           {/* CTAs */}
           <div
+            id="hero-cta"
             className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
             style={{ animationDelay: "0.3s" }}
           >
@@ -538,8 +540,32 @@ function FinalCTA() {
 
 /* ── Mobile Bottom CTA ── */
 function MobileBottomCTA() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const heroCta = document.getElementById("hero-cta");
+    if (!heroCta) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Show bottom bar when hero CTA is NOT visible
+        setVisible(!entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(heroCta);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="mobile-cta-bar">
+    <div
+      className="mobile-cta-bar"
+      style={{
+        transform: visible ? "translateY(0)" : "translateY(100%)",
+        transition: "transform 0.3s ease",
+      }}
+    >
       <Link href="/start" className="btn-primary w-full text-center">
         Start Your Project
         <ArrowRight className="w-4 h-4" />
