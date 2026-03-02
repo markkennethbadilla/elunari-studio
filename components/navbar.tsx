@@ -47,7 +47,7 @@ export function Navbar() {
             style={{ color: "var(--text)" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/icon.svg" alt="Elunari Studio" width={32} height={32} className="w-8 h-8" />
+            <img src="/icon.svg?v=2" alt="Elunari Studio" width={32} height={32} className="w-8 h-8" />
             <span>
               Elunari{" "}
               <span style={{ color: "var(--primary)" }}>Studio</span>
