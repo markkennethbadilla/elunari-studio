@@ -6,5 +6,10 @@
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="108" fill="url(#bg)"/>
-  <text x="256" y="340" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="280" font-weight="800" opacity="0.95">S</text>
+  <!-- Paintbrush icon representing design studio -->
+  <g fill="none" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+    <path d="M340 120 L392 172 L232 332 C220 344, 196 348, 180 348 C164 348, 148 336, 148 316 C148 296, 160 280, 180 268 Z"/>
+    <line x1="310" y1="150" x2="362" y2="202"/>
+    <circle cx="180" cy="316" r="16" fill="white" fill-opacity="0.6"/>
+  </g>
 </svg>
